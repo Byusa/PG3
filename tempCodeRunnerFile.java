@@ -1,0 +1,1 @@
+Class.forName("com.mysql.jdbc.Driver");
