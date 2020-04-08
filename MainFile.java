@@ -14,10 +14,10 @@ public class MainFile {
                 "jdbc:mysql://comp421.cs.mcgill.ca:50000/cs421" +
                 "user=cs421g48&password=@group48");
             //here sonoo is database name, root is username and password  
-            /*Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Pays");
             while (rs.next())
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));*/
+                System.out.println(rs.getInt(1) + "  " + rs.getInt(2));
             con.close();
         } catch (Exception ex) {
               // handle any errors
