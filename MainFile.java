@@ -11,18 +11,18 @@ public class MainFile {
             Class.forName("com.mysql.jdbc.Driver");
 
             con = DriverManager.getConnection(
-                "jdbc:mysql://comp421.cs.mcgill.ca:50000/cs421, user_name" +"user=cs421g48&password=@group48");
+                "jdbc:mysql://comp421.cs.mcgill.ca:50000/cs421" +
+                "user=cs421g48&password=@group48");
             //here sonoo is database name, root is username and password  
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from emp");
+            /*Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from Pays");
             while (rs.next())
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));*/
             con.close();
         } catch (Exception ex) {
               // handle any errors
+            System.out.println(ex);
             System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ((SQLException) ex).getSQLState());
-            System.out.println("VendorError: " + ((SQLException) ex).getErrorCode());
         }
     }
 }  
