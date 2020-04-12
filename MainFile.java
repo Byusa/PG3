@@ -91,6 +91,7 @@ class MainFile{
 			System.out.println("Code: " + sqlCode + "  sqlState: " + sqlState);
 		}
 
+
 		// Finally but importantly close the statement and connection
 		statement.close();
 		con.close();
