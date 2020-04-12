@@ -1,14 +1,23 @@
-import java.sql.*;
+import java.util.Scanner;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Scanner;
+import java.sql.Statement;
+
 
 class MainFile{
+	
+	private static final String url = "jdbc:postgresql://comp421.cs.mcgill.ca:5432/cs421";
+	private static final String usernamestring = "cs421g48";
+	private static final String passwordstring = "@group48";
+	private static Connection con;
+    private static Scanner input;
+    
 	public static void main(String[] args) throws SQLException {
+	
 		boolean notDone = true;
 
-		Scanner input = new Scanner(System.in);
+		input = new Scanner(System.in);
 
 		while (notDone) {
 			System.out.println("---------- YouNite ----------");
@@ -49,7 +58,7 @@ class MainFile{
 
 	}
 
-	public static void QuerringPays() throws SQLException {
+	private static void QuerringPays() throws SQLException {
 		int sqlCode = 0; // Variable to hold SQLCODE
 		String sqlState = "00000"; // Variable to hold SQLSTATE
 
@@ -60,12 +69,8 @@ class MainFile{
 			System.out.println("Class not found");
 		}
 
-		// This is the url you must use for Postgresql.
-		// Note: This url may not valid now !
-		String url = "jdbc:postgresql://comp421.cs.mcgill.ca:5432/cs421";
-		String usernamestring = "cs421g48";
-		String passwordstring = "@group48";
-		Connection con = DriverManager.getConnection(url, usernamestring, passwordstring);
+		
+		con = DriverManager.getConnection(url, usernamestring, passwordstring);
 		Statement statement = con.createStatement();
 
 		// Querying a table
@@ -83,15 +88,16 @@ class MainFile{
 		} catch (SQLException e) {
 			sqlCode = e.getErrorCode(); // Get SQLCODE
 			sqlState = e.getSQLState(); // Get SQLSTATE
-
-			// Your code to handle errors comes here;
-			// something more meaningful than a print would be good
 			System.out.println("Code: " + sqlCode + "  sqlState: " + sqlState);
 		}
 
 		// Finally but importantly close the statement and connection
 		statement.close();
 		con.close();
-	}
+	} 
+	
+	
+	
+	
 
 }
