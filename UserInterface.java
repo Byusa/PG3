@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class UserInterface {
-    public static void main(String[] args){ 
+   /* public static void main(String[] args){ 
         
         // just after the 1 
         System.out.println("Hello. Welcome to our Database!");
@@ -24,5 +24,5 @@ public class UserInterface {
         //System.out.println("You entered string "+word);
         
         
-    } 
+    } */
 }
